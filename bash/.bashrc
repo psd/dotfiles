@@ -56,7 +56,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # my brain is hard-wired to these two, terrible aliases
 alias workon='source .venv/bin/activate'
-alias mkvirtualenv='python3.12 -m venv --prompt . .venv --clear --upgrade-deps && workon'
+alias mkvenv='python3.12 -m venv --prompt . .venv --clear --upgrade-deps && workon'
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
