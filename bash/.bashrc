@@ -55,7 +55,7 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # my brain is hard-wired to these two, terrible aliases
-alias workon='source .venv/bin/activate'
+alias workon='source .venv/bin/activate ; echo -en "\033]0;$(basename $PWD)\a"'
 alias mkvenv='python3.13 -m venv --prompt . .venv --clear --upgrade-deps && workon'
 
 # pyenv
