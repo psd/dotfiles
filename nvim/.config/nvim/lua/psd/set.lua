@@ -28,3 +28,6 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
 vim.opt.isfname:append("@-@")
+
+-- use XTerm mouse menu
+vim.opt.mouse = ""
