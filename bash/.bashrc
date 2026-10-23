@@ -22,6 +22,7 @@ alias vi='nvim-clean'  # vi-style Neovim, see ~/.config/nvim-vi
 alias vim='nvim-clean'
 export EDITOR=nvim-clean
 export VISUAL=nvim-clean
+export SUDO_EDITOR=nvim-clean
 set -o vi
 
 alias lrt='ls -lh --sort=modified'
