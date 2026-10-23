@@ -1,0 +1,3 @@
+#!/bin/bash
+# vi-style Neovim: config in ~/.config/nvim-vi, no LazyVim, no bundled plugins.
+NVIM_APPNAME=nvim-vi exec nvim --noplugin "$@"

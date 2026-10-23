@@ -1,0 +1,12 @@
+#!/bin/bash
+# Start foot with both palettes loaded, picking white-on-black on the dark
+# workspaces listed in ~/.config/omarchy/workspace-dark/workspaces.
+# psd-workspace-theme recolours it if it later moves workspace.
+
+DARK_DIR="$HOME/.config/omarchy/workspace-dark"
+ws=$(hyprctl activeworkspace -j 2>/dev/null | jq -r .id)
+
+theme=light
+[[ " $(cat "$DARK_DIR/workspaces" 2>/dev/null) " == *" $ws "* || " $(cat "$DARK_DIR/workspaces" 2>/dev/null) " == *" * "* ]] && theme=dark
+
+exec /usr/bin/foot -c "$DARK_DIR/foot-main.ini" -o main.initial-color-theme=$theme "$@"

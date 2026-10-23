@@ -1,0 +1,27 @@
+#!/bin/bash
+# Keep terminals white-on-black on the workspaces listed in
+# ~/.config/omarchy/workspace-dark/workspaces, and on the active theme
+# (psd: black on white) everywhere else, recolouring them as they move.
+
+DARK_DIR="$HOME/.config/omarchy/workspace-dark"
+
+is_dark() { local w; w=" $(cat "$DARK_DIR/workspaces") "; [[ $w == *" * "* || $w == *" $1 "* ]]; }
+
+# Switch every foot started by ~/.local/bin/foot to the palette for the
+# workspace it is on: SIGUSR1 = [colors-dark], SIGUSR2 = [colors-light].
+recolor_terminals() {
+  local pid ws
+  while read -r pid ws; do
+    grep -qz "$DARK_DIR/foot-main.ini" "/proc/$pid/cmdline" 2>/dev/null || continue
+    if is_dark "$ws"; then kill -USR1 "$pid"; else kill -USR2 "$pid"; fi
+  done < <(hyprctl clients -j | jq -r '.[] | "\(.pid) \(.workspace.id)"')
+}
+
+recolor_terminals
+
+socat -U - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" |
+  while IFS= read -r line; do
+    case $line in
+      movewindowv2\>\>*) recolor_terminals ;;
+    esac
+  done

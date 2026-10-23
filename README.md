@@ -14,3 +14,9 @@ The [LSP](https://en.wikipedia.org/wiki/Language_Server_Protocol) integration is
 ## stow
 
 I maintain this repo using [GNU stow](https://www.gnu.org/software/stow/) thanks to this [blog post](https://medium.com/quick-programming/managing-dotfiles-with-gnu-stow-9b04c155ebad).
+
+## omarchy
+
+This laptop runs [Omarchy](https://omarchy.org/) (Hyprland). Packages: `hypr`, `omarchy` (per-workspace terminal colours), `bin` (small scripts for `~/.local/bin`), `git`, `tmux`, `starship`, `xcompose`, `nvim` (LazyVim) and `nvim-vi` (plain vi-style Neovim, used as `$EDITOR`).
+
+Install with, for example, `stow bash nvim hypr`.
