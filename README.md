@@ -19,4 +19,4 @@ I maintain this repo using [GNU stow](https://www.gnu.org/software/stow/) thanks
 
 This laptop runs [Omarchy](https://omarchy.org/) (Hyprland). Packages: `hypr`, `omarchy` (per-workspace terminal colours), `bin` (small scripts for `~/.local/bin`), `git`, `tmux`, `starship`, `xcompose`, `nvim` (LazyVim) and `nvim-vi` (plain vi-style Neovim, used as `$EDITOR`).
 
-Install with, for example, `stow bash nvim hypr`.
+Install with, for example, `stow -t ~ bash nvim hypr`. The `-t ~` is needed because stow otherwise links into the parent of this directory.
