@@ -23,6 +23,9 @@ end
 hl.on("monitor.added", dedicate_workspace_10)
 for _, mon in ipairs(hl.get_monitors()) do dedicate_workspace_10(mon) end
 
+-- External monitor at 60Hz, above the laptop screen.
+hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "auto-center-up", scale = omarchy_monitor_scale })
+
 -- Configure a specific monitor.
 -- hl.monitor({ output = "DP-2", mode = "2560x1440@144", position = "0x0", scale = 1 })
 
