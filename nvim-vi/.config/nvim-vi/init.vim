@@ -60,3 +60,9 @@ inoremap <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Let accepted LSP items also add imports and expand snippets.
 lua vim.api.nvim_create_autocmd("LspAttach", { callback = function(ev) vim.lsp.completion.enable(true, ev.data.client_id, ev.buf) end })
+
+" Spell checking (British English) for markdown, underlining misspellings.
+set spelllang=en_gb
+autocmd FileType markdown setlocal spell
+autocmd ColorScheme * highlight SpellBad cterm=underline gui=underline
+highlight SpellBad cterm=underline gui=underline
