@@ -30,3 +30,10 @@
 
 -- Antigravity CLI (agy), started in ~/Work like the default agent.
 o.bind("SUPER + ALT + A", "Antigravity", [[omarchy-launch-tui --app-id=org.omarchy.agent bash -c 'cd "$HOME/Work" && exec "$HOME/.local/bin/agy"']])
+
+-- Dictation keys from before Alt + Space and Right Alt became the defaults.
+-- Remove these lines to give the keys back to applications.
+if o.dictation_installed and o.dictation_installed() then
+  o.bind("SUPER + CTRL + X", "Toggle dictation", "omarchy-dictation toggle")
+  o.bind_hold("F9", "Start dictation (push-to-talk)", "omarchy-dictation start", "Stop dictation (push-to-talk)", "omarchy-dictation stop")
+end
