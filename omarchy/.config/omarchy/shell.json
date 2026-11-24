@@ -14,6 +14,9 @@
       ],
       "centerEnd": [
         {
+          "id": "omarchy.media"
+        },
+        {
           "cities": [
             {
               "name": "London",
@@ -63,6 +66,9 @@
         },
         {
           "id": "omarchy.workspaces"
+        },
+        {
+          "id": "omarchy.active-window"
         }
       ],
       "right": [
@@ -80,6 +86,9 @@
         },
         {
           "id": "omarchy.network"
+        },
+        {
+          "id": "omarchy.microphone"
         },
         {
           "id": "omarchy.audio"
