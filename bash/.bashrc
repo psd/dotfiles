@@ -14,8 +14,30 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # my brain is hard-wired to these two, terrible aliases
-alias workon='source .venv/bin/activate'
-alias mkvenv='python3 -m venv --prompt . .venv --clear --upgrade-deps && workon'
+# workon: activate the nearest .venv, searching upwards from $PWD
+workon() {
+    local dir=$PWD
+    while [[ -n $dir && ! -f $dir/.venv/bin/activate ]]; do
+        dir=${dir%/*}
+    done
+    if [[ -z $dir ]]; then
+        echo "workon: no .venv found; run mkvenv" >&2
+        return 1
+    fi
+    declare -F deactivate >/dev/null && deactivate
+    source "$dir/.venv/bin/activate"
+}
+
+# mkvenv [version]: create .venv (with pip) and activate it.
+# Version: argument, else .python-version, else latest Python.
+mkvenv() {
+    local ver=${1:-}
+    if [[ -z $ver && -f .python-version ]]; then
+        ver=$(head -n1 .python-version)
+    fi
+    declare -F deactivate >/dev/null && deactivate
+    uv venv --seed --clear --prompt . --python "${ver:-3}" .venv && workon
+}
 
 # my brain was rewired by Bill Joy sometime in 1985
 alias vi='nvim-clean'  # vi-style Neovim, see ~/.config/nvim-vi
