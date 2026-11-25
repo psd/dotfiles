@@ -21,7 +21,7 @@ BarWidget {
   property bool popupOpen: false
 
   function close() { popupOpen = false }
-  property real maxLabelWidth: 180
+  property real maxLabelWidth: 360
 
   visible: hasMedia
   implicitWidth: hasMedia ? row.implicitWidth + Style.space(14) : 0
