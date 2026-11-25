@@ -1,6 +1,6 @@
 {
   "bar": {
-    "background": "none",
+    "background": "opaque",
     "layout": {
       "center": [
         {
@@ -14,7 +14,7 @@
       ],
       "centerEnd": [
         {
-          "id": "omarchy.media"
+          "id": "psd.media"
         },
         {
           "cities": [
