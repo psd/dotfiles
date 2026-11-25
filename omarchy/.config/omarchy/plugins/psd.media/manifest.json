@@ -6,9 +6,11 @@
   "author": "Omarchy",
   "description": "MPRIS now-playing without marquee",
   "kinds": [
+    "service",
     "bar-widget"
   ],
   "entryPoints": {
+    "service": "Service.qml",
     "barWidget": "BarWidget.qml"
   },
   "barWidget": {
@@ -19,5 +21,6 @@
   },
   "omarchy": {
     "clonedFrom": "omarchy.media"
-  }
+  },
+  "keepLoaded": true
 }
