@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "psd.media",
+  "name": "My Media",
+  "version": "1.0.0",
+  "author": "Omarchy",
+  "description": "MPRIS now-playing without marquee",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "My Media",
+    "description": "MPRIS now-playing without marquee",
+    "category": "Media",
+    "allowMultiple": false
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.media"
+  }
+}
